@@ -22,10 +22,8 @@ const CardProductContainer2 = () => {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 
-  let currentProducts = products?.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
+  let currentProducts =
+    products && products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   useEffect(() => {
     dispatch(getShopId(location.pathname));
@@ -39,19 +37,20 @@ const CardProductContainer2 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapCards}>
-        {currentProducts &&
-          currentProducts.map((paq) => {
-            return (
-              <CardProduct2
-                key={paq.id}
-                id={paq.id}
-                name={paq.name}
-                price={paq.price}
-                image={paq.image}
-                description={paq.description}
-              />
-            );
-          })}
+        {currentProducts
+          ? currentProducts.map((paq) => {
+              return (
+                <CardProduct2
+                  key={paq.id}
+                  id={paq.id}
+                  name={paq.name}
+                  price={paq.price}
+                  image={paq.image}
+                  description={paq.description}
+                />
+              );
+            })
+          : null}
       </div>
       <Paginado
         productsPerPage={productsPerPage}
