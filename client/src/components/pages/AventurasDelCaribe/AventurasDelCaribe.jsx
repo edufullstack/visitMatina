@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { getShops, getShopId, getShopData } from '../../../redux/shopActions';
 import { resetShopId, resetShopData } from '../../../redux/shopSlice';
-import CardProductContainer from '../../common/CardProductContainer/CardProductContainer';
+import CardProductContainer2 from '../../common/CardProductContainer2/CardProductContainer2';
 import CardShop from '../../common/shopsDos/cardShop/CardShop';
 import Reviews from '../../common/Reviews/Reviews';
 import Redes from '../../common/redesSociales/redes/Redes';
@@ -52,7 +52,7 @@ export default function AventurasDelCaribe() {
   const topRef = useRef(null);
 
   function handleClick() {
-    window.scrollTo({ top: topRef.current.offsetTop, behavior: 'smooth' });
+    window.scrollTo({ top: topRef.current?.offsetTop, behavior: 'smooth' });
   }
   return (
     <div className={style.page}>
@@ -65,13 +65,15 @@ export default function AventurasDelCaribe() {
       </section>
 
       <div className={style.cardProductContainerContainer}>
-        <div>
-          <CardProductContainer />
+        < div >
+          <CardProductContainer2 />
         </div>
       </div>
       <div className={style.container}>
         <Link to='/artesaniasMarYLuna' onClick={handleClick}>
-          <h2>Visita nuestra tienda de artesanías</h2>
+          <h2 className={style.encabezado}>
+            Visita nuestra tienda de artesanías
+          </h2>
           <img
             alt=''
             className={style.item}
