@@ -1,31 +1,31 @@
-const mercadopago = require('mercadopago');
+// const mercadopago = require('mercadopago');
 const request = require('request');
 require('dotenv').config();
 const { CLIENT, SECRET } = process.env;
 
-mercadopago.configure({
-  access_token: process.env.MP_KEY,
-});
+// mercadopago.configure({
+//   access_token: process.env.MP_KEY,
+// });
 
-const newPayment = async (req, res) => {
-  const items = req.body;
+// const newPayment = async (req, res) => {
+//   const items = req.body;
 
-  let preference = {
-    items: items,
-    back_urls: {
-      success: 'https://visit-matina.vercel.app/successPay/',
-      failure: '',
-      pending: '',
-    },
-    auto_return: 'approved',
-    binary_mode: true,
-  };
+//   let preference = {
+//     items: items,
+//     back_urls: {
+//       success: 'https://visit-matina.vercel.app/successPay/',
+//       failure: '',
+//       pending: '',
+//     },
+//     auto_return: 'approved',
+//     binary_mode: true,
+//   };
 
-  mercadopago.preferences
-    .create(preference)
-    .then((resp) => res.status(200).send({ resp }))
-    .catch((err) => res.status(400).send({ error: err.message }));
-};
+//   mercadopago.preferences
+//     .create(preference)
+//     .then((resp) => res.status(200).send({ resp }))
+//     .catch((err) => res.status(400).send({ error: err.message }));
+// };
 
 const auth = { user: CLIENT, pass: SECRET };
 const PAYPAL_API = 'https://api-m.sandbox.paypal.com';
@@ -82,7 +82,7 @@ const executePayment = (req, res) => {
 };
 
 module.exports = {
-  newPayment,
+  // newPayment,
   createPayment,
   executePayment,
 };

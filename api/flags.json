@@ -1,8 +1,1 @@
-{
-  "users": false,
-  "shops": false,
-  "reviews": false,
-  "comments": false,
-  "posts": false,
-  "products": false
-}
+{"users":true,"shops":true,"reviews":false,"comments":true,"posts":true,"products":false}
