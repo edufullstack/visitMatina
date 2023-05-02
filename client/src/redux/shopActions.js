@@ -44,7 +44,9 @@ export const getShopId = (path) => async (dispatch) => {
 export const getShopData = (path) => async (dispatch) => {
   try {
     const shops = await axios('/shops');
-    const shopFiltered = shops.data.filter((shop) => shop.path === path);
+    const shopFiltered =
+      shops && shops.data.filter((shop) => shop.path === path);
+
     dispatch(getShopDataByPath(shopFiltered.at(0)));
   } catch (error) {
     console.log(error);
@@ -54,8 +56,7 @@ export const getShopData = (path) => async (dispatch) => {
 export const postShop = (obj) => async (dispatch) => {
   try {
     const shops = await axios.post('/shops', obj);
-    dispatch(resPostShop(shops.data.message));
-    return shops.data.message;
+    return dispatch(resPostShop(shops.data.message));
   } catch (error) {
     return error.response.data.error;
   }

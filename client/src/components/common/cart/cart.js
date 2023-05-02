@@ -45,6 +45,7 @@ export default function Cart() {
     const localCart = localStorage.getItem('products');
     let local = JSON.parse(localCart) || [];
     dispatch(restoreCart(local));
+    //console.log(products);
   }, [payment]);
 
   return (

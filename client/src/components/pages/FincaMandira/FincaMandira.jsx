@@ -6,7 +6,7 @@ import { getShopId, getShopData } from '../../../redux/shopActions';
 import { resetShopId, resetShopData } from '../../../redux/shopSlice';
 
 import CardProductContainer2 from '../../common/CardProductContainer2/CardProductContainer2';
-
+import Redes from '../../common/redesSociales/redes/Redes';
 import style from './FincaMandira.module.css';
 import CardShop from '../../common/shopsDos/cardShop/CardShop';
 import Reviews from '../../common/Reviews/Reviews';
@@ -14,9 +14,10 @@ import Footer from '../../common/Footer/Footer';
 import WhatsApp from '../../common/WhatsApp/WhatsApp';
 
 //importamos el array que simula los datos que llegan del back-componente redes sociales
+import { arrayRedes } from './arrayRedes';
 
 //importamos elementos que simula los datos que llegan del estado global
-
+import { descriptions, name, imagen } from './descriptions';
 import ShopContact from '../Contact/ShopContact';
 
 export default function FincaMandira() {
